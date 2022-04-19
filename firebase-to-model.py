@@ -1,7 +1,8 @@
 import firebase_admin
 from firebase_admin import credentials, firestore, storage
 import datetime
-import requests
+import urllib.request
+from skimage import io
 
 
 def main():  
@@ -16,9 +17,7 @@ def main():
     blob = bucket.blob("puzzle-piece-template-13.png")
     image_url = blob.generate_signed_url(datetime.timedelta(seconds=300), method='GET')
     
-    img_data = requests.get(image_url).content
-    with open('puzzle-piece-template-13.png', 'wb') as handler:
-        handler.write(img_data)
+    urllib.request.urlretrieve(image_url, r"C:\Users\regdi\Documents\reg documents\Miscellaneous\Mark Desperation\ethnomed")
 
 if __name__ == "__main__":
     main();
