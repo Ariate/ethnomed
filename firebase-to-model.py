@@ -1,9 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, firestore, storage
 import datetime
-import urllib.request
-from PlantProgramRes import Ethnomed
-from skimage import io
+from localpackage.PlantProgramRes import Ethnomed
 
 
 def main():  
