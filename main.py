@@ -6,6 +6,7 @@ from localpackage.PlantProgramRes import Ethnomed
 
 def main():  
 
+    # Firebase Store 
     cred=credentials.Certificate(r'firebasekey.json')
     firebase_admin.initialize_app(cred, {
         'storageBucket': 'ethnomed-de562.appspot.com'
@@ -13,7 +14,7 @@ def main():
     db = firestore.client()
 
     bucket = storage.bucket()
-    blob = bucket.blob("Guava.jpg")
+    blob = bucket.blob("raw_img.jpg")
     image_url = blob.generate_signed_url(datetime.timedelta(seconds=300), method='GET')
     
     Ethnomed(str(image_url))
