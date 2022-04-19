@@ -1,5 +1,5 @@
 firebase_admin
 datetime
 numpy
-skimage
+scikit-image
 cv2
