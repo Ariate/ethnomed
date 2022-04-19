@@ -2,6 +2,7 @@ import firebase_admin
 from firebase_admin import credentials, firestore, storage
 import datetime
 import urllib.request
+from PlantProgramRes import Ethnomed
 from skimage import io
 
 
@@ -14,10 +15,13 @@ def main():
     db = firestore.client()
 
     bucket = storage.bucket()
-    blob = bucket.blob("puzzle-piece-template-13.png")
+    blob = bucket.blob("Guava.jpg")
     image_url = blob.generate_signed_url(datetime.timedelta(seconds=300), method='GET')
     
-    urllib.request.urlretrieve(image_url, r"C:\Users\regdi\Documents\reg documents\Miscellaneous\Mark Desperation\ethnomed")
+    Ethnomed(str(image_url))
+    
+    blob = bucket.blob("psd_img.png")
+    blob.upload_from_filename("psd_img.png")
 
 if __name__ == "__main__":
     main();
