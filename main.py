@@ -6,7 +6,7 @@ from localpackage.PlantProgramRes import Ethnomed
 
 def main():  
 
-    cred=credentials.Certificate(r'C:\Users\regdi\Documents\reg documents\Miscellaneous\Mark Desperation\ethnomed\firebasekey.json')
+    cred=credentials.Certificate(r'firebasekey.json')
     firebase_admin.initialize_app(cred, {
         'storageBucket': 'ethnomed-de562.appspot.com'
     })
@@ -18,7 +18,7 @@ def main():
     
     Ethnomed(str(image_url))
     
-    blob = bucket.blob("psd_img.png")
+    blob = bucket.blob(r"localpackage\psd_img.png")
     blob.upload_from_filename("psd_img.png")
 
 if __name__ == "__main__":

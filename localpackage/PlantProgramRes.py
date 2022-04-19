@@ -3,7 +3,7 @@ def Ethnomed(image_url):
     from skimage import io
     from cv2 import cv2
 
-    plant_cascade=cv2.CascadeClassifier(r'C:\Users\regdi\Documents\reg documents\Miscellaneous\Mark Desperation\ethnomed\cascade.xml')
+    plant_cascade=cv2.CascadeClassifier(r'cascade.xml')
 
     
     img = io.imread(image_url)
@@ -16,5 +16,5 @@ def Ethnomed(image_url):
         roi_gray = gray[y:y+h, x:x+w]
         roi_color = img[y:y+h, x:x+w]
     
-    cv2.imwrite(r'C:\Users\regdi\Documents\reg documents\Miscellaneous\Mark Desperation\ethnomed\psd_img.png', img)
+    cv2.imwrite(r'psd_img.png', img)
     
