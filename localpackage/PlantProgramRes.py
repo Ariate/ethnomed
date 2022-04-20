@@ -18,10 +18,9 @@ def Ethnomed(image_url):
         roi_color = img[y:y+h, x:x+w]
     
     is_success, buffer = cv2.imencode(".jpg", img)
-    io_buf = io2.BytesIO(buffer)
+    byte_img = buffer.tobytes()
+
     
-    decode_img = cv2.imdecode(np.frombuffer(io_buf.getbuffer(), np.uint8), -1)
-    
-    return decode_img
+    return byte_img
 
     
