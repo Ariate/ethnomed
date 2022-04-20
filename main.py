@@ -1,10 +1,8 @@
-import firebase_admin
-from firebase_admin import credentials, firestore, storage
-import datetime
-from localpackage.PlantProgramRes import Ethnomed
-
-
 def main(request):  
+    import firebase_admin
+    from firebase_admin import credentials, firestore, storage
+    import datetime
+    from localpackage.PlantProgramRes import Ethnomed
 
     request_json = request.get_json(silent=True)
     request_args = request.args
@@ -18,11 +16,7 @@ def main(request):
         image = request_args['image']
         status = Ethnomed(image)
         return str(status)
-    
-
-if __name__ == "__main__":
-    main();
-    
+        
     # Firebase Store 
     # cred=credentials.Certificate(r'firebasekey.json')
     # firebase_admin.initialize_app(cred, {
