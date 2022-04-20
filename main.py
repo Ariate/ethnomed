@@ -12,12 +12,12 @@ def main(request):
     if request_json and 'image' in request_json:
         image = request_json['image']
         status = Ethnomed(image)
-        return status
+        return str(status)
     
     elif request_args and 'image' in request_args:
         image = request_args['image']
         status = Ethnomed(image)
-        return status
+        return str(status)
     
 
 if __name__ == "__main__":
