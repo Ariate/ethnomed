@@ -5,18 +5,11 @@ def main(request):
     from localpackage.PlantProgramRes import Ethnomed
 
     request_json = request.get_json(silent=True)
-    request_args = request.args
 
-    if request_json and 'image' in request_json:
-        image = request_json['image']
-        status = Ethnomed(image)
-        return str(status)
-    
-    elif request_args and 'image' in request_args:
-        image = request_args['image']
-        status = Ethnomed(image)
-        return str(status)
-        
+    image = request_json['image']
+    status = Ethnomed(image)
+    return str(status)
+            
     # Firebase Store 
     # cred=credentials.Certificate(r'firebasekey.json')
     # firebase_admin.initialize_app(cred, {
