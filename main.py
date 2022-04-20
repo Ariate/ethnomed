@@ -8,6 +8,7 @@ def main(request):
 
     image = request_json['encoded']['image']
     status = Ethnomed(image)
+    print (status)
     return str(status)
             
     # Firebase Store 
