@@ -2,6 +2,7 @@ def Ethnomed(image_url):
     import numpy as np
     from skimage import io
     from cv2 import cv2
+    import io as io2
 
     plant_cascade=cv2.CascadeClassifier(r'./localpackage/cascade.xml')
 
@@ -17,7 +18,7 @@ def Ethnomed(image_url):
         roi_color = img[y:y+h, x:x+w]
     
     is_success, buffer = cv2.imencode(".jpg", img)
-    io_buf = io.BytesIO(buffer)
+    io_buf = io2.BytesIO(buffer)
     
     decode_img = cv2.imdecode(np.frombuffer(io_buf.getbuffer(), np.uint8), -1)
     
