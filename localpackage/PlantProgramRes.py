@@ -3,7 +3,7 @@ def Ethnomed(image_url):
     from skimage import io
     from cv2 import cv2
 
-    plant_cascade=cv2.CascadeClassifier(r'cascade.xml')
+    plant_cascade=cv2.CascadeClassifier(r'./localpackage/cascade.xml')
 
     
     img = io.imread(image_url)
