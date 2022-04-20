@@ -12,11 +12,17 @@ def main(request):
     if request_json and 'image' in request_json:
         image = request_json['image']
         img_str = Ethnomed(image)
+        return img_str
+    
     elif request_args and 'image' in request_args:
         image = request_args['image']
         img_str = Ethnomed(image)
+        return img_str
+    
+    else:
+        return "Error"
 
-    return img_str
+    
 
 if __name__ == "__main__":
     main();
