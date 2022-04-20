@@ -11,15 +11,13 @@ def main(request):
 
     if request_json and 'image' in request_json:
         image = request_json['image']
-        img_str = Ethnomed(image)
-        return img_str
+        status = Ethnomed(image)
+        return status
     
     elif request_args and 'image' in request_args:
         image = request_args['image']
-        img_str = Ethnomed(image)
-        return img_str
-    
-
+        status = Ethnomed(image)
+        return status
     
 
 if __name__ == "__main__":
