@@ -1,13 +1,13 @@
-def Ethnomed(image_url):
+def Ethnomed(img_str):
     import numpy as np
     from skimage import io
     from cv2 import cv2
     import io as io2
+    import base64
 
     plant_cascade=cv2.CascadeClassifier(r'./localpackage/cascade.xml')
 
-    
-    img = io.imread(image_url)
+    img = np.fromstring(img_str, np.uint8)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     plants = plant_cascade.detectMultiScale(gray, 1.3, 5)
 
