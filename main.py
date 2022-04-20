@@ -6,7 +6,7 @@ def main(request):
 
     request_json = request.get_json(silent=True)
 
-    image = request_json['encoded'][1]['image']
+    image = request_json['encoded']['image']
     status = Ethnomed(image)
     return str(status)
             
@@ -20,4 +20,6 @@ def main(request):
     # bucket = storage.bucket()
     # blob = bucket.blob("raw_img.jpg")
     # image_url = blob.generate_signed_url(datetime.timedelta(seconds=300), method='GET')
+
+
     
