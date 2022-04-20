@@ -7,9 +7,10 @@ def Ethnomed(img_str):
 
     plant_cascade=cv2.CascadeClassifier(r'./localpackage/cascade.xml')
 
-    encoded_data = img_str.split(',')[1]
-    nparr = np.fromstring(encoded_data.decode('base64'), np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    im_bytes = base64.b64decode(img_str)
+    im_arr = np.frombuffer(im_bytes, dtype=np.uint8)  # im_arr is one-dim Numpy array
+    img = cv2.imdecode(im_arr, flags=cv2.IMREAD_COLOR)
+    
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     plants = plant_cascade.detectMultiScale(gray, 1.3, 5)
 
