@@ -6,7 +6,7 @@ def main(request):
 
     request_json = request.get_json(silent=True)
 
-    image = request_json['encoded'][0]['image']
+    image = request_json['encoded'][1]['image']
     status = Ethnomed(image)
     return str(status)
             
