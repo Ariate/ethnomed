@@ -9,7 +9,7 @@ def main(request):
     image = request_json['encoded']['image']
     status = Ethnomed(image)
     print (status)
-    return "{'status':" + status + "}"
+    return "{'status':" + str(status) + "}"
             
     # Firebase Store 
     # cred=credentials.Certificate(r'firebasekey.json')
