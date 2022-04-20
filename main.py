@@ -4,7 +4,7 @@ import datetime
 from localpackage.PlantProgramRes import Ethnomed
 
 
-def main():  
+def main(request):  
 
     # Firebase Store 
     cred=credentials.Certificate(r'firebasekey.json')
@@ -22,7 +22,7 @@ def main():
     blob = bucket.blob(r"localpackage\psd_img.png")
     blob.upload_from_filename("psd_img.png")
     
-    return "Photo successfully processed."
+    return request
 
 if __name__ == "__main__":
     main();
