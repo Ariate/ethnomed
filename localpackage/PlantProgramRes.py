@@ -16,17 +16,10 @@ def Ethnomed(img_str):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     plants = plant_cascade.detectMultiScale(gray, 1.3, 5)
 
-    for (x,y,w,h) in plants:
-        cv2.rectangle(img,(x,y),(x+w,y+h), (255,0,0), 2)
-
-        roi_gray = gray[y:y+h, x:x+w]
-        roi_color = img[y:y+h, x:x+w]
-    
-    is_success, buffer = cv2.imencode(".jpg", img)
-    psd_img = base64.b64encode(buffer)
-
-    
-    return psd_img
+    if len(plants) !=0:
+        return True
+    else:
+        return False
 
 # Del
 #with open(r"C:\Users\regdi\Documents\reg documents\Miscellaneous\Mark Desperation\raw_img.jpg", "rb") as f:
