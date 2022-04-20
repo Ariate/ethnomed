@@ -21,6 +21,8 @@ def main():
     
     blob = bucket.blob(r"localpackage\psd_img.png")
     blob.upload_from_filename("psd_img.png")
+    
+    return "Photo successfully processed."
 
 if __name__ == "__main__":
     main();
