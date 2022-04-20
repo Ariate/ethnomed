@@ -19,8 +19,6 @@ def main(request):
         img_str = Ethnomed(image)
         return img_str
     
-    else:
-        return "Error"
 
     
 
