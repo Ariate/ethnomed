@@ -16,5 +16,11 @@ def Ethnomed(image_url):
         roi_gray = gray[y:y+h, x:x+w]
         roi_color = img[y:y+h, x:x+w]
     
-    cv2.imwrite(r'psd_img.png', img)
+    is_success, buffer = cv2.imencode(".jpg", img)
+    io_buf = io.BytesIO(buffer)
+    
+    decode_img = cv2.imdecode(np.frombuffer(io_buf.getbuffer(), np.uint8), -1)
+    
+    return decode_img
+
     

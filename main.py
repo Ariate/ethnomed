@@ -17,10 +17,10 @@ def main(request):
     blob = bucket.blob("raw_img.jpg")
     image_url = blob.generate_signed_url(datetime.timedelta(seconds=300), method='GET')
     
-    Ethnomed(str(image_url))
+    bytes_img = Ethnomed(str(image_url))
     
-    blob = bucket.blob(r"localpackage\psd_img.png")
-    blob.upload_from_filename("psd_img.png")
+    blob = bucket.blob(r"psd-img.png")
+    blob.upload_from_string(bytes_img.read(),content_type='image/png')
     
     return request
 
